@@ -5,7 +5,6 @@ import ItemListContainer from './components/ItemListContainer';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { useParams } from 'react-router-dom';
 
 function App() {
   return (<>
@@ -13,7 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index path="/" element={<ItemListContainer />} />
-        <Route path="/ItemDetail" element={<ItemDetailContainer />} />
+        <Route path="/category/:id" element={<ItemListContainer />} />
+        <Route path="/Item/:id" element={<ItemDetailContainer />} />
       </Routes>
     </BrowserRouter>
   </>

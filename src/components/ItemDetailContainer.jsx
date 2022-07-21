@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import data from "./utils/data";
-import ItemList from "./Itemlist";
+import { useParams } from "react-router-dom";
+
 
 
 const ItemDetailContainer = () => {
+    const { id } = useParams();
     const [item, setItems] = useState([]);
     const promise = new Promise((resolve) => {
         setTimeout(() => resolve(data), 2000);
     });
 
     useEffect(() => {
-        promise.then((res) => setItems(data[0]));
-    }, []);
+        promise.then((res) => {
+            const products = res
+            if (id) { setItems(data.filter(product => product.id == id)) }
+            else {
+                setItems(products)
+            }
+
+        });
+    }, [id]);
     return (
         <>
             <div className="mt-5">

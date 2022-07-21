@@ -5,9 +5,10 @@ const ItemDetail = ({ item }) => {
             <img className="card-img-top" src={pictureUrl} alt="Card image cap" />
             <div className="card-body d-flex flex-column justify-content-center">
                 <h5 className="card-title">{title}</h5>
+                <p className="card-text">{`${detail}`}</p>
                 <p className="card-text">{`${stock} Disponibles!`}</p>
                 <p className="card-text">{`$${price}`}</p>
-                <p className="card-text">{`${detail}`}</p>
+
             </div>
         </div>
     );

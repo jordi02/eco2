@@ -5,20 +5,32 @@
         "price": "20500",
         "stock": 28,
         "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.26358.jpg",
-        "detail": "Una encarnación masculina de la magnificencia y sofisticación de Bulgari. El nuevo BVLGARI MAN IN BLACK es una fragancia atrevida y carismática que expresa una nueva declaración de masculinidad. Notas de entrada: Tabaco Especiado, Ambar, Tuberosa. Notas de corazón: Iris, Benzoin, Acorde de cuero. Notas de salida: Haba Tonka, madera de Guaiac. Aroma: Oriental, Ambar, Floral."
+        "detail": "Una encarnación masculina de la magnificencia y sofisticación de Bulgari. El nuevo BVLGARI MAN IN BLACK es una fragancia atrevida y carismática que expresa una nueva declaración de masculinidad. Notas de entrada: Tabaco Especiado, Ambar, Tuberosa. Notas de corazón: Iris, Benzoin, Acorde de cuero. Notas de salida: Haba Tonka, madera de Guaiac. Aroma: Oriental, Ambar, Floral.",
+        "category": "hombre"
     },
     {
         "id": 2,
         "title": "Bvlgari glacial essence",
         "price": "20500",
         "stock": 15,
-        "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.62569.jpg"
+        "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.62569.jpg",
+        "category": "hombre"
     },
     {
         "id": 3,
         "title": "Bvlgari terrae essence",
         "price": "20500",
         "stock": 18,
-        "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.68293.jpg"
+        "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.68293.jpg",
+        "category": "hombre"
+    },
+    {
+        "id": 4,
+        "title": "Good Girl",
+        "price": "22500",
+        "stock": 38,
+        "pictureUrl": "https://fraguru.com/mdimg/perfume/375x500.39681.jpg",
+        "detail": "La fragancia GOOD GIRL está inspirada por la visión única de Carolina Herrera de la dualidad de la mujer moderna: audaz y sexy, elegante y enigmática, buena y mala. Siempre forzando y traspasando los límites, la misteriosa sensualidad de GOOD GIRL hace que sea una fragancia moderna y sofisticada a la vez. Notas de entrada: Almendra. Notas de corazón: Ylang-ylang y Jazmín Sambac. Notas de salida: Haba Tonka y Cocoa. Aroma: Oriental / Floral.",
+        "category": "mujer"
     }
 ]
