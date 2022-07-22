@@ -7,19 +7,18 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
+    const [loading, setLoading] = useState(false);
     const [item, setItems] = useState([]);
     const promise = new Promise((resolve) => {
         setTimeout(() => resolve(data), 2000);
     });
 
     useEffect(() => {
-        promise.then((res) => {
-            const products = res
-            if (id) { setItems(data.filter(product => product.id == id)) }
-            else {
-                setItems(products)
-            }
-
+        setLoading(true);
+        promise.then((response) => {
+            const foundItem = response.filter((item) => item.id == id);
+            setItems(foundItem[0]);
+            setLoading(false);
         });
     }, [id]);
     return (
