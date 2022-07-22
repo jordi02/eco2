@@ -10,7 +10,7 @@ const Item = ({ item }) => {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{`${stock} Disponibles!`}</p>
                 <p className="card-text">{`$${price}`}</p>
-                <Link to={`item/${id}`}> <button className="btn btn-primary ">
+                <Link to={`/item/${id}`}> <button className="btn btn-primary ">
                     See product details
                 </button></Link>
                 <ItemCount />
