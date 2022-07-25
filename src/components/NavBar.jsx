@@ -1,5 +1,9 @@
 import CartWidget from "./Cartwidget";
 import { Link } from "react-router-dom";
+const logo = "https://e7.pngegg.com/pngimages/998/199/png-clipart-chanel-no-5-perfume-fashion-chanel-perfume-fashion.png"
+
+
+
 const NavBar = () => {
     return (
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -9,6 +13,7 @@ const NavBar = () => {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <img style={{ width: 40 }} src={logo} />
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>

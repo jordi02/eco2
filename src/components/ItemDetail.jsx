@@ -1,3 +1,5 @@
+import ItemCount from "./ItemCount";
+
 const ItemDetail = ({ item }) => {
     const { title, price, stock, pictureUrl, detail } = item;
     return (
@@ -8,9 +10,9 @@ const ItemDetail = ({ item }) => {
                 <p className="card-text">{`${detail}`}</p>
                 <p className="card-text">{`${stock} Disponibles!`}</p>
                 <p className="card-text">{`$${price}`}</p>
-
+                <ItemCount />
             </div>
-        </div>
+        </div >
     );
 };
 
