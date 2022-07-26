@@ -1,6 +1,4 @@
-import ItemCount from "./ItemCount";
 import { Link } from 'react-router-dom';
-
 const Item = ({ item }) => {
     const { title, price, stock, pictureUrl, detail, id } = item;
     return (
@@ -10,10 +8,11 @@ const Item = ({ item }) => {
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{`${stock} Disponibles!`}</p>
                 <p className="card-text">{`$${price}`}</p>
-                <Link to={`/item/${id}`}> <button className="btn btn-primary ">
-                    See product details
-                </button></Link>
-                <ItemCount />
+                <div className='d-flex justify-content-center'>
+                    <Link to={`/item/${id}`}> <button className="btn btn-info">
+                        See product details
+                    </button></Link>
+                </div>
             </div>
         </div>
     );

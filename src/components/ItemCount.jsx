@@ -1,26 +1,57 @@
-import React, { useState } from "react";
-
-
-function ItemCount() {
-    const [count, setCount] = useState(1);
-    function sumar() {
-        setCount(count + 1)
+import { useState } from "react";
+const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
+    const [count, setCount] = useState(initial);
+    const updateCount = (op) => {
+        if (op === "-" && count > 0) {
+            setCount(count - 1);
+        }
+        if (op === "+" && count < stock) {
+            setCount(count + 1);
+        }
     };
-    function restar() {
-        if (count === 1) { setCount(count + 0) }
-        else { setCount(count - 1) }
+    const updateCountInput = (e) => {
+        const { value } = e.target;
+        if (value <= stock) {
+            setCount(isNaN(value) ? 0 : parseInt(value));
+        }
     };
-    function cart() {
-        alert("Se agregaron " + [count] + "  productos al carrito")
-    }
-
     return (
-        <div>
-            <button onClick={restar}>-</button>
-            <span>{count}</span>
-            <button onClick={sumar}>+</button>
-            <button onClick={cart}>Agregar al carrito</button>
-        </div>
+        <>
+            <div className="input-group input-spinner mb-3 d-flex justify-content-center">
+                <input
+                    onChange={(e) => updateCountInput(e)}
+                    className="border-primary"
+                    placeholder=""
+                    value={count}
+                    type="number"
+                />
+                <button
+                    onClick={() => updateCount("-")}
+                    className="btn btn-icon btn-primary"
+                    type="button"
+                >
+                    -
+                </button>
+                <button
+                    onClick={() => updateCount("+")}
+                    className="btn btn-icon btn-primary"
+                    type="button"
+                >
+                    +
+                </button>
+            </div>
+            <div className="d-flex justify-content-center">
+                <button
+                    onClick={() => onAdd(count)}
+                    type="button"
+                    className="btn btn-info"
+                    disabled={count === "" || count === 0}
+                >
+                    Agregar!
+                </button>
+            </div>
+        </>
     );
-}
+};
+
 export default ItemCount;
