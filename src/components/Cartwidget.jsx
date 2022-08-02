@@ -4,9 +4,9 @@ const CartWidget = () => {
 
     return (
         <>
-            <a className="text-decoration-none" href="#">
+            <a className="text-decoration-none" href="/cart/">
+                <img style={{ width: 40 }} src={url} />
             </a>
-            <img style={{ width: 40 }} src={url} />
         </>
     );
 };

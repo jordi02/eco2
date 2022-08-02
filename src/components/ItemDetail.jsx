@@ -1,12 +1,19 @@
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "./CartContext"
+
+
+
 const ItemDetail = ({ item }) => {
     const { title, price, stock, pictureUrl, detail } = item;
     const [amount, setAmount] = useState(0)
+    const { addItem } = useContext(Context)
+
     const onAdd = (amount) => {
-        setAmount(amount);
+        addItem(item, amount);
     }
+    console.log(addItem)
     return (<div>
         <div className="card" style={{ width: "15rem" }}>
             <img className="card-img-top" src={pictureUrl} alt="Card image cap" />
