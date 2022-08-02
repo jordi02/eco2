@@ -24,7 +24,12 @@ const CartContext = ({ children }) => {
         setItemCarrito(itemsCarrito.filter(element => element.item.id != itemId))
     }
 
-    return <Context.Provider value={{ itemsCarrito, addItem, removeItem, clear }}>{children}</Context.Provider>
+    const totalPrice = () => {
+        return itemsCarrito.reduce(
+            (valorAnterior, valorActual) => valorAnterior + valorActual.item.price * valorActual.quantity, 0)
+    }
+
+    return <Context.Provider value={{ itemsCarrito, addItem, removeItem, clear, totalPrice }}>{children}</Context.Provider>
 }
 
 export default CartContext
