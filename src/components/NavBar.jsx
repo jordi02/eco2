@@ -6,33 +6,46 @@ const logo = "https://e7.pngegg.com/pngimages/998/199/png-clipart-chanel-no-5-pe
 
 const NavBar = () => {
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <img style={{ width: 40 }} src={logo} />
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/category/mujer">Mujer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/category/hombre">Hombre</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+        <>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container-fluid">
+                    <img style={{ width: 40 }} src={logo} />
+                    <Link className="navbar-brand" to={"/"}>
+                        Home
+                    </Link>
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div className="navbar-nav">
+                            <Link
+                                style={{ textDecoration: "none", margin: "1rem" }}
+                                to={"category/hombre"}
+                            >
+                                Hombre
+                            </Link>
+                            <Link
+                                style={{ textDecoration: "none", margin: "1rem" }}
+                                to={"category/mujer"}
+                            >
+                                Mujer
+                            </Link>
+                        </div>
+                    </div>
+                    <CartWidget />
                 </div>
-            </div>
-            <CartWidget />
-        </nav>
+            </nav>
+        </>
     );
 };
 
 export default NavBar;
+

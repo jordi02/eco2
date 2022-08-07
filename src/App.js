@@ -11,8 +11,8 @@ import Cart from './components/Cart';
 function App() {
   return (<>
     <CartContext>
-      <NavBar />
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route index path="/" element={<ItemListContainer />} />
           <Route path="/category/:id" element={<ItemListContainer />} />
