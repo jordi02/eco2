@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: "https://img.freepik.com/vector-gratis/elegante-fondo-blanco-lineas-diagonales_1017-33199.jpg?w=2000";
 }
 
 .App-logo {
@@ -32,6 +33,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

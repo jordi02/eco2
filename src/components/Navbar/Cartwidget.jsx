@@ -1,6 +1,6 @@
 const CartWidget = () => {
     const url =
-        "https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg";
+        "https://www.nicepng.com/png/full/231-2317477_clip-art-black-and-white-stock-shopping-clip.png";
 
     return (
         <>

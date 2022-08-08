@@ -7,15 +7,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import CartContext from './components/CartContext';
 import Cart from './components/Cart/Cart';
-
+import Footer from './components/Footer/Footer';
 function App() {
   return (<>
     <CartContext>
       <BrowserRouter>
         <NavBar />
+
         <Routes>
           <Route index path="/" element={<ItemListContainer />} />
-          <Route path="/category/:hombre" element={<ItemListContainer />} />
+          <Route path="/category/:id  " element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
           <Route path="/cart/" element={<Cart />} />
         </Routes>

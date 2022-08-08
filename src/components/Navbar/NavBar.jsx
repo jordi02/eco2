@@ -7,7 +7,7 @@ const logo = "https://e7.pngegg.com/pngimages/998/199/png-clipart-chanel-no-5-pe
 const NavBar = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <img style={{ width: 40 }} src={logo} />
                     <Link className="navbar-brand" to={"/"}>
