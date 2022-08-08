@@ -1,28 +1,33 @@
 import { useState, useEffect } from "react";
-import ItemList from "./Itemlist";
+import ItemList from "../ItemList/Itemlist";
 import { useParams } from "react-router-dom";
-import { getFirestore, collection, getDocs } from "firebase/firestore"
+
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
 const ItemListContainer = () => {
-    const { id } = useParams();
-    const [item, setItems] = useState([]);
-    useEffect(() => {
-        const db = getFirestore();
-        const itemsCollection = collection(db, "items");
-        getDocs(itemsCollection).then((snapshot) => {
-            const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-            setItems(data);
+  const { name } = useParams();
+  const [items, setItems] = useState([]);
 
-        })
-            ;
-    }, [id]);
-    return (
-        <>
-            <div className="mt-5">
-                <ItemList items={item} />
-            </div>
-        </>
-    );
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    const db = getFirestore();
+    const itemsCollection = collection(db, "items");
+    getDocs(itemsCollection).then((snapshot) => {
+      const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }));
+      setItems(data);
+      setLoading(false);
+    });
+  }, [name]);
+
+  return (
+    <>
+      <div className="mt-5">
+        <ItemList items={items} />
+      </div>
+    </>
+  );
 };
-
 
 export default ItemListContainer;

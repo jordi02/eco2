@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 const CartWidget = () => {
     const url =
         "https://www.nicepng.com/png/full/231-2317477_clip-art-black-and-white-stock-shopping-clip.png";
 
     return (
         <>
-            <a className="text-decoration-none" href="/cart/">
+            <Link to="/cart">
                 <img style={{ width: 40 }} src={url} />
-            </a>
+            </Link>
         </>
     );
 };

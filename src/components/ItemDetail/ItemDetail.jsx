@@ -13,7 +13,6 @@ const ItemDetail = ({ item }) => {
     const onAdd = (amount) => {
         addItem(item, amount);
     }
-    console.log(addItem)
     return (<div>
         <div className="card" style={{ width: "15rem" }}>
             <img className="card-img-top" src={pictureUrl} alt="Card image cap" />
