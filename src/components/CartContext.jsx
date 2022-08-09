@@ -24,10 +24,6 @@ const CartProvider = (props) => {
       buyer: buyerData,
     };
 
-    addDoc(orderCollection, order)
-      .then((res) => console.log(res.id))
-      .catch((err) => console.log("error", err));
-
     const batch = writeBatch(db);
     const idList = cartItems.map((product) => product.item.id);
     const withoutStock = [];

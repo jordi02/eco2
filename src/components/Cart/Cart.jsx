@@ -35,8 +35,8 @@ const Cart = () => {
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text">{`${item.stock} units available!`}</p>
                 <p className="card-text">{`$${
-                  ((item.price * item.discount) / 100) * quantity
-                } | with a ${item.discount}% discount!`}</p>
+                  (item.price  * quantity)
+                }`}</p>
               </div>
             </div>
           </>
