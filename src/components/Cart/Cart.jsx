@@ -1,40 +1,62 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { Context } from "../CartContext";
-import CartItem from "../CartItem/CartItem";
+import React, { useContext, useEffect, useState } from "react";
+import { CartContext } from "../CartContext";
 
 const Cart = () => {
-    const { itemsCarrito, removeItem, clear, totalPrice } = useContext(Context)
-    const total = totalPrice()
-    return (
-        <>
-            {itemsCarrito.length === 0 ? (
-                <>
-                    <a class="nav-link" href="/">No hay productos! Agrega alguno</a>
-                </>
-            ) : (
-                <>
-                    {itemsCarrito.map((element) => (
-                        <CartItem item={element.item} quantity={element.quantity} removeItem={removeItem} />
-                    ))}     
-                    <h1>El total de la compra es de : {total}</h1>
-                    <button className="bg-red-500 p-2 " onClick={() => clear()}>
-                        Vaciar carrito
-                    </button>
-                    <form>
-                    <input type="text" />
-                    <input type="email" />
-                    <input type="tel" />
-                    <button
-                      type="submit"
-                      className="btn btn-info"
-                    >
-                      Send order
-                    </button>
-                  </form>
-                </>
-            )}
-        </>
-    );
+  const [totalPrice, setTotalPrice] = useState(0);
+  const { cartItems, sendOrder } = useContext(CartContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const inputs = document.getElementsByTagName("input");
+    console.log(inputs[0]);
+    const data = Array.from(inputs).map((input, index) => input.value);
+    sendOrder(totalPrice, { name: data[0], mail: data[1], phone: data[2] });
+    // updateOrder();
+    // multipleUpdates();
+  };
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach(({ item, quantity }) => {
+      total += parseInt(item.price) * quantity;
+    });
+    setTotalPrice(total);
+  }, [cartItems]);
+  return (
+    <>
+      <ul>
+        {cartItems.map(({ item, quantity }) => (
+          <>
+            <div key={item.id} className="card" style={{ width: "20rem" }}>
+              <img
+                className="card-img-top"
+                src={item.pictureUrl}
+                alt="Card image cap"
+              />
+              <div className="card-body d-flex flex-column justify-content-center">
+                <h5 className="card-title">{item.title}</h5>
+                <p className="card-text">{`${item.stock} units available!`}</p>
+                <p className="card-text">{`$${
+                  ((item.price * item.discount) / 100) * quantity
+                } | with a ${item.discount}% discount!`}</p>
+              </div>
+            </div>
+          </>
+        ))}
+      </ul>
+      <h1 className="bg-primary">{`Your total is: $${totalPrice}`}</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" />
+        <input type="email" />
+        <input type="tel" />
+        <button
+          // onClick={() => sendOrder(totalPrice)}
+          type="submit"
+          className="btn btn-info"
+        >
+          Send order
+        </button>
+      </form>
+    </>
+  );
 };
+
 export default Cart;
