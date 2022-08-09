@@ -1,8 +1,30 @@
-import { createContext, useState } from "react"; export const Context = createContext();
+import { createContext, useState } from "react"; 
+import {
+    addDoc,
+    collection,
+    getFirestore,
+    writeBatch,
+    query,
+    where,
+    getDocs,
+    documentId,
+  } from "firebase/firestore";
+  
+export const Context = createContext();
 
 const CartContext = ({ children }) => {
     const [itemsCarrito, setItemCarrito] = useState([]);
-
+const sendOrder = () => {
+    const db = getFirestore()
+    const orderColleccion = collection(db, "orders");
+    const order = {
+        items: itemsCarrito,
+        total: totalPrice,
+      };
+    addDoc(orderColleccion, order)
+    .then((res) => console.log(res.id))
+    .catch((err) => console.log("error", err));
+}
     const addItem = (item, quantity) => {
         const newItem = isInCart(item);
         if (newItem) {
