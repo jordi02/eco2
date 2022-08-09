@@ -16,6 +16,10 @@ const ItemListContainer = () => {
     const itemsCollection = collection(db, "items");
     getDocs(itemsCollection).then((snapshot) => {
       const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }));
+      if (name)
+      {setItems(data.filter((item) => item.category === name))
+      setLoading(false);
+    return;}
       setItems(data);
       setLoading(false);
     });
