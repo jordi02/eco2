@@ -22,7 +22,6 @@ const ItemListContainer = () => {
     return;}
       setItems(data);
       console.log(data)
-      console.log(category)
       setLoading(false);
     });
   }, [category]);
