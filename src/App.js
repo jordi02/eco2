@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import CartContext from './components/CartContext';
 import Cart from './components/Cart/Cart';
-import Footer from './components/Footer/Footer';
+
 function App() {
   return (<>
     <CartContext>

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const { name } = useParams();
+  const { category } = useParams();
   const [items, setItems] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -16,14 +16,16 @@ const ItemListContainer = () => {
     const itemsCollection = collection(db, "items");
     getDocs(itemsCollection).then((snapshot) => {
       const data = snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() }));
-      if (name)
-      {setItems(data.filter((item) => item.category === name))
+      if (category)
+      {setItems(data.filter((item) => item.category === category))
       setLoading(false);
     return;}
       setItems(data);
+      console.log(data)
+      console.log(category)
       setLoading(false);
     });
-  }, [name]);
+  }, [category]);
 
   return (
     <>
