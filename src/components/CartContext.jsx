@@ -52,24 +52,6 @@ const CartProvider = (props) => {
     }
   };
 
-  // const updateOrder = () => {
-  //   const db = getFirestore();
-  //   const docRef = doc(db, "items", "PatNxY6HFkj2NWjdBiQD");
-  //   updateDoc(docRef, { price: 500 })
-  //     .then((res) => alert("Order updated"))
-  //     .catch((err) => alert("Order update failed"));
-  // };
-
-  // const multipleUpdates = () => {
-  //   const db = getFirestore();
-  //   const docRef = doc(db, "orders", "yFNkyYhtywT0QBmpI9W1");
-  //   const docWithoutPrice = doc(db, "orders", "0eVkTcqobXQvsYyeQTwv");
-  //   batch.update(docRef, { total: 180 });
-  //   batch.update(docWithoutPrice, {
-  //     buyer: { mail: "test", name: "test", phone: "1111" },
-  //   });
-  //   batch.commit();
-  // };
 
   return (
     <CartContext.Provider
@@ -77,8 +59,6 @@ const CartProvider = (props) => {
         cartItems,
         setCartItems,
         sendOrder,
-        // updateOrder,
-        // multipleUpdates,
       }}
     >
       {props.children}
