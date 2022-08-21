@@ -20,21 +20,21 @@ const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
             <div className="input-group input-spinner mb-3 d-flex justify-content-center">
                 <input
                     onChange={(e) => updateCountInput(e)}
-                    className="border-primary"
+                    className="border-dark"
                     placeholder=""
                     value={count}
                     type="number"
                 />
                 <button
                     onClick={() => updateCount("-")}
-                    className="btn btn-icon btn-primary"
+                    className="btn btn-icon btn btn-dark"
                     type="button"
                 >
                     -
                 </button>
                 <button
                     onClick={() => updateCount("+")}
-                    className="btn btn-icon btn-primary"
+                    className="btn btn-icon btn btn-dark"
                     type="button"
                 >
                     +
@@ -44,7 +44,7 @@ const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
                 <button
                     onClick={() => onAdd(count)}
                     type="button"
-                    className="btn btn-info"
+                    className="btn btn-dark"
                     disabled={count === "" || count === 0}
                 >
                     Agregar!

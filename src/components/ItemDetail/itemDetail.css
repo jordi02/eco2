@@ -1,0 +1,15 @@
+.card-class{
+    width: 600px;
+    height: 900px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 300px 300px;
+    box-shadow: 4px 6px rgba(0, 0, 0, 0.12), 0 3px 4px rgba(0, 0, 0, 0.24);
+    position: relative;
+    margin: 20px auto;
+}
+.card-img-to{
+    width: 375px;
+    height: 500px;
+}

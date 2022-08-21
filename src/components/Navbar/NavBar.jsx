@@ -9,7 +9,7 @@ const NavBar = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <img style={{ width: 40 }} src={logo} />
+                    <img style={{ width: 40 }}  />
                     <Link className="navbar-brand" to={"/"}>
                         Home
                     </Link>

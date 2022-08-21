@@ -1,17 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../CartContext";
-
+import "./Cart.css"
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
-  const { cartItems, sendOrder } = useContext(CartContext);
+  const { cartItems, sendOrder, clear, removeItem } = useContext(CartContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const inputs = document.getElementsByTagName("input");
     console.log(inputs[0]);
     const data = Array.from(inputs).map((input, index) => input.value);
     sendOrder(totalPrice, { name: data[0], mail: data[1], phone: data[2] });
-    // updateOrder();
-    // multipleUpdates();
   };
   useEffect(() => {
     let total = 0;
@@ -22,6 +20,12 @@ const Cart = () => {
   }, [cartItems]);
   return (
     <>
+         {cartItems.length === 0 ? (
+                <>
+                    <a class="nav-link nop" href="/">No hay productos! Agrega alguno</a>
+                </>
+            ) :
+            <>
       <ul>
         {cartItems.map(({ item, quantity }) => (
           <>
@@ -33,29 +37,32 @@ const Cart = () => {
               />
               <div className="card-body d-flex flex-column justify-content-center">
                 <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">{`${item.stock} units available!`}</p>
+                <p className="card-text">{`${item.stock} Unidades disponibles!`}</p>
                 <p className="card-text">{`$${
                   (item.price  * quantity)
-                }`}</p>
+                }`}</p>   
               </div>
+              <button className='btn btn-dark' onClick={() => removeItem(item.id)}>Eliminar</button>
             </div>
+            
           </>
         ))}
       </ul>
-      <h1 className="bg-primary">{`Your total is: $${totalPrice}`}</h1>
+      <button className='btn btn-dark' onClick={() => clear()}>Vaciar Carrito</button>
       <form onSubmit={handleSubmit}>
-        <input type="text" />
-        <input type="email" />
-        <input type="tel" />
+        <input type="text" placeholder ="Nombre" />
+        <input type="email" placeholder ="Email@" />
+        <input type="tel" placeholder="Telefono" />
         <button
-          // onClick={() => sendOrder(totalPrice)}
           type="submit"
-          className="btn btn-info"
+          className="btn btn-dark"
         >
           Send order
         </button>
       </form>
+      <h1 className="bg-dark text-white">{`El total es $${totalPrice}`}</h1>
     </>
+}</>
   );
 };
 

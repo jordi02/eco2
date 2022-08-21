@@ -23,7 +23,7 @@ const CartProvider = (props) => {
       total: totalPrice,
       buyer: buyerData,
     };
-
+ 
     const batch = writeBatch(db);
     const idList = cartItems.map((product) => product.item.id);
     const withoutStock = [];
@@ -51,16 +51,14 @@ const CartProvider = (props) => {
       );
     }
   };
-
-
+  const removeItem = (itemId) => {
+    setCartItems(cartItems.filter(element => element.item.id != itemId))
+}
+const clear = () =>{
+  setCartItems([]);
+};
   return (
-    <CartContext.Provider
-      value={{
-        cartItems,
-        setCartItems,
-        sendOrder,
-      }}
-    >
+    <CartContext.Provider value={{cartItems,setCartItems, sendOrder, removeItem, clear}}>
       {props.children}
     </CartContext.Provider>
   );
