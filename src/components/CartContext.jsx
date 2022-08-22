@@ -23,7 +23,9 @@ const CartProvider = (props) => {
       total: totalPrice,
       buyer: buyerData,
     };
- 
+
+
+
     const batch = writeBatch(db);
     const idList = cartItems.map((product) => product.item.id);
     const withoutStock = [];
@@ -57,8 +59,20 @@ const CartProvider = (props) => {
 const clear = () =>{
   setCartItems([]);
 };
+const addItem = (item,quantity) => {
+  const newItem = isInCart(item);
+  if(newItem){
+    quantity = quantity + newItem.quantity
+    setCartItems(cartItems.splice(cartItems.findIndex(element => element.item.id === item.id),1))
+  }
+  setCartItems([...cartItems, {item, quantity}])
+}
+
+const isInCart = (item) => {
+  return cartItems.find((element) => element.item === item)
+}
   return (
-    <CartContext.Provider value={{cartItems,setCartItems, sendOrder, removeItem, clear}}>
+    <CartContext.Provider value={{cartItems,setCartItems, sendOrder, removeItem, clear, addItem}}>
       {props.children}
     </CartContext.Provider>
   );

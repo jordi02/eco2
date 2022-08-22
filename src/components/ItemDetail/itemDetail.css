@@ -1,5 +1,5 @@
-.card-class{
-    width: 600px;
+.card-class2{
+    width: 1520px;
     height: 900px;
     background: #fff;
     padding: 15px;
@@ -9,7 +9,7 @@
     position: relative;
     margin: 20px auto;
 }
-.card-img-to{
+.img-detail{
     width: 375px;
     height: 500px;
 }

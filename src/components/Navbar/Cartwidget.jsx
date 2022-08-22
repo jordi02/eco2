@@ -13,7 +13,7 @@ const CartWidget = () => {
         <>
             <Link to="/cart">
                 <img style={{ width: 40 }} src={url} />
-                <span className="ps-2">{cartItems.length}</span>
+                <span className="ps-2 ">{cartItems.length}</span>
             </Link>
         </>
     );

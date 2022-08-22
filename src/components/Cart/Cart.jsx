@@ -36,8 +36,9 @@ const Cart = () => {
                 alt="Card image cap"
               />
               <div className="card-body d-flex flex-column justify-content-center">
-                <h5 className="card-title">{item.title}</h5>
+                <h4 className="card-title">{item.title}</h4>
                 <p className="card-text">{`${item.stock} Unidades disponibles!`}</p>
+                <h5 className="card-text">{`Llevas ${quantity}`}</h5>
                 <p className="card-text">{`$${
                   (item.price  * quantity)
                 }`}</p>   
@@ -49,7 +50,8 @@ const Cart = () => {
         ))}
       </ul>
       <button className='btn btn-dark' onClick={() => clear()}>Vaciar Carrito</button>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
+        <label htmlFor="">Ingrese sus datos:</label>
         <input type="text" placeholder ="Nombre" />
         <input type="email" placeholder ="Email@" />
         <input type="tel" placeholder="Telefono" />

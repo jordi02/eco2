@@ -3,17 +3,20 @@ import ItemCount from "../Item/ItemCount";
 import { Link } from "react-router-dom";
 import { CartContext } from "../CartContext";
 import "./itemDetail.css"
+
+
+
 const ItemDetail = ({ item }) => {
-  const { setCartItems } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const [amount, setAmount] = useState(0);
-  const { title, price, stock, pictureUrl, detail   } = item;
+  const { title, stock, pictureUrl, detail   } = item;
   const onAdd = (amount) => {
-    setAmount(amount);
-    setCartItems((prevState) => [...prevState, { item, quantity: amount }]);
+    addItem(item, amount);
+    
   };
   return (
-    <div className="card-class" style={{ width: "20rem" }}>
-      <img className="card-img-top" src={pictureUrl} alt="Card image cap" />
+    <div className="card-class2">
+      <img className="img-detail" src={pictureUrl} alt="Card image cap" />
       <div className="card-body d-flex flex-column justify-content-center">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{`${stock} Disponibles!`}</p>
