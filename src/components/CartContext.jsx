@@ -60,6 +60,11 @@ const clear = () =>{
   setCartItems([]);
 };
 const addItem = (item,quantity) => {
+  const isInCart = (item) => {
+    return cartItems.find((element) => element.item.id === item.id)
+    
+  }
+
   const newItem = isInCart(item);
   if(newItem){
     quantity = quantity + newItem.quantity
@@ -68,9 +73,6 @@ const addItem = (item,quantity) => {
   setCartItems([...cartItems, {item, quantity}])
 }
 
-const isInCart = (item) => {
-  return cartItems.find((element) => element.item === item)
-}
   return (
     <CartContext.Provider value={{cartItems,setCartItems, sendOrder, removeItem, clear, addItem}}>
       {props.children}
